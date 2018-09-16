@@ -1,14 +1,27 @@
-'use strict';
+"use strict";
 
-const {h, Component, Color} = require('ink');
-const PropTypes = require('prop-types');
+const { h, Component, Color } = require("ink");
+const PropTypes = require("prop-types");
+const importJsx = require("import-jsx");
+
+const { LogOutput } = importJsx("./components/");
 
 class UI extends Component {
-	render({name}) {
+	componentDidMount() {
+		this.timer = setInterval(() => console.log("Tick"), 1000);
+	}
+
+	componentWillUnmount() {
+		clearInterval(this.timer);
+	}
+
+	render({ name }) {
 		return (
-			<Color green>
-				I love {name}
-			</Color>
+			<div>
+				<Color green>I love {name}</Color>
+				<br />
+				<LogOutput lines={20} />
+			</div>
 		);
 	}
 }
@@ -18,7 +31,7 @@ UI.propTypes = {
 };
 
 UI.defaultProps = {
-	name: 'Ink'
+	name: "Ink"
 };
 
 module.exports = UI;
