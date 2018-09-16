@@ -2,6 +2,8 @@
 
 > Javascript based ink-console.
 
+Migration still in progress. `LogOutput` component renders and logs interval ticks.
+
 # Credit
 
 This a clone of [ink-console](https://github.com/ForbesLindesay/ink-console.git) by Forbes Lindesay.
