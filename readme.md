@@ -2,13 +2,30 @@
 
 > Javascript based ink-console.
 
+# Credit
+
+This a clone wrote and maintained in JavaScript by icyJoseph.
+
+Credit for the original ink-console wrote in TypeScript goes to:
+
+[Forbes Lindesay](https://github.com/ForbesLindesay)
+
+```json
+"repository": {
+    "type": "git",
+    "url": "https://github.com/ForbesLindesay/ink-console.git"
+  },
+  "author": {
+    "name": "Forbes Lindesay",
+    "url": "http://github.com/ForbesLindesay"
+  },
+```
 
 ## Install
 
 ```
 $ npm install --global ink-js-console
 ```
-
 
 ## Usage
 
@@ -27,7 +44,6 @@ $ ink-js-console --help
     $ ink-js-console --name=ponies
     I love ponies
 ```
-
 
 ## License
 
