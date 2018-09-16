@@ -4,9 +4,11 @@
 
 # Credit
 
-This a clone wrote and maintained in JavaScript by icyJoseph.
+This a clone of [ink-console](https://github.com/ForbesLindesay/ink-console.git) by Forbes Lindesay.
 
-Credit for the original ink-console wrote in TypeScript goes to:
+I migrated and will maintain this clone in JavaScript.
+
+Again, all credit for the original [ink-console](https://github.com/ForbesLindesay/ink-console.git) written in TypeScript goes to:
 
 [Forbes Lindesay](https://github.com/ForbesLindesay)
 
