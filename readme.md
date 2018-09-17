@@ -2,7 +2,10 @@
 
 > Javascript based ink-console.
 
-Migration still in progress. `LogOutput` component renders and logs interval ticks.
+Next steps:
+
+- Increase test coverage
+- Rewrite helpers
 
 # Credit
 
@@ -37,7 +40,7 @@ $ npm install ink-js-console
 const { h, render } = require("ink");
 const Console = require("ink-js-console");
 
-render(<Console lines={20}/>);
+render(<Console lines={20} />);
 ```
 
 ## Props

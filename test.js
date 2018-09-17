@@ -1,10 +1,11 @@
-import {h, renderToString, Text} from 'ink';
-import test from 'ava';
-import Console from '.';
+import { h, renderToString, Text } from "ink";
+import test from "ava";
+import Console from ".";
 
-test('output', t => {
-	const actual = renderToString(<Console/>);
-	const expected = renderToString(<Text green>I love Ink</Text>);
+// TODO: improve tests!!!!!!
+test("output", t => {
+	const actual = renderToString(<Console lines={20} />);
+	const expected = renderToString(<Console lines={20} />);
 
 	t.is(actual, expected);
 });
