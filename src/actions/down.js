@@ -1,7 +1,7 @@
-const countRows = require('../components/countRows');
 const assert = require('assert');
+const countRows = require('../components/countRows');
 
-module.exports = function down(s) {
+function down(s) {
 	if (s.pinned) {
 		return s;
 	}
@@ -17,10 +17,11 @@ module.exports = function down(s) {
 			lastEntryToDisplayIndex,
 			offset: lastEntryLines - 1
 		};
-	} else {
-		return {
-			...s,
-			offset: s.offset - 1
-		};
 	}
-};
+	return {
+		...s,
+		offset: s.offset - 1
+	};
+}
+
+module.exports = down;

@@ -1,4 +1,4 @@
-module.exports = function getDepth(value) {
+function getDepth(value) {
 	if (Array.isArray(value)) {
 		return Math.max(0, ...value.map(v => 1 + getDepth(v)));
 	} else if (value && typeof value === 'object') {
@@ -8,4 +8,6 @@ module.exports = function getDepth(value) {
 		);
 	}
 	return 0;
-};
+}
+
+module.exports = getDepth;

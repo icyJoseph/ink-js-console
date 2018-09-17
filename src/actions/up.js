@@ -1,7 +1,7 @@
 const countRows = require('../components/countRows');
 const topStop = require('./topStop');
 
-module.exports = function up(s, props) {
+function up(s, props) {
 	if (s.pinned) {
 		let lines = 0;
 		let i = 0;
@@ -10,10 +10,10 @@ module.exports = function up(s, props) {
 			i++;
 		}
 		if (lines < props.lines + 1) {
-			// if there aren't enough lines, do not start scrolling
+			// If there aren't enough lines, do not start scrolling
 			return s;
 		}
-		// go up one from the bottom position
+		// Go up one from the bottom position
 		return up(
 			{
 				...s,
@@ -23,19 +23,19 @@ module.exports = function up(s, props) {
 			},
 			props
 		);
-	} else {
-		const offset = s.offset + 1;
-		if (offset === countRows(s.log[s.lastEntryToDisplayIndex], s.depth)) {
-			return topStop(
-				{
-					...s,
-					offset: 0,
-					lastEntryToDisplayIndex: s.lastEntryToDisplayIndex - 1
-				},
-				props
-			);
-		} else {
-			return topStop({ ...s, offset }, props);
-		}
 	}
-};
+	const offset = s.offset + 1;
+	if (offset === countRows(s.log[s.lastEntryToDisplayIndex], s.depth)) {
+		return topStop(
+			{
+				...s,
+				offset: 0,
+				lastEntryToDisplayIndex: s.lastEntryToDisplayIndex - 1
+			},
+			props
+		);
+	}
+	return topStop({ ...s, offset }, props);
+}
+
+module.exports = up;

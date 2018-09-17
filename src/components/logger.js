@@ -1,6 +1,6 @@
 const consoleMethods = require('../constants');
 
-class LogCatcher {
+class Logger {
 	constructor() {
 		this._log = [];
 		this._handlers = new Set();
@@ -24,9 +24,6 @@ class LogCatcher {
 				}
 			};
 		});
-		// this.getLog = this.getLog.bind(this);
-		// this.onUpdate = this.onUpdate.bind(this);
-		// this.dispose = this.dispose.bind(this);
 	}
 
 	getLog() {
@@ -43,4 +40,4 @@ class LogCatcher {
 	}
 }
 
-module.exports = LogCatcher;
+module.exports = Logger;

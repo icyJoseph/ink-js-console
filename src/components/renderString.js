@@ -1,5 +1,5 @@
-const chalk = require('chalk');
 const { inspect } = require('util');
+const chalk = require('chalk');
 const indentString = require('indent-string');
 
 function renderDirOutputValue(value, depth, options) {
@@ -11,18 +11,17 @@ function renderDirOutputValue(value, depth, options) {
 			return (
 				'[Array] ' + chalk.blue('(press ' + options.expandKey + ' to expand)')
 			);
-		} else {
-			return (
-				'[\n' +
-				indentString(
-					value
-						.map(v => renderDirOutputValue(v, depth - 1, options) + ',')
-						.join('\n'),
-					2
-				) +
-				'\n]'
-			);
 		}
+		return (
+			'[\n' +
+			indentString(
+				value
+					.map(v => renderDirOutputValue(v, depth - 1, options) + ',')
+					.join('\n'),
+				2
+			) +
+			'\n]'
+		);
 	} else if (value && typeof value === 'object') {
 		if (Object.keys(value).length === 0) {
 			return '{}';
@@ -31,27 +30,25 @@ function renderDirOutputValue(value, depth, options) {
 			return (
 				'[Object] ' + chalk.blue('(press ' + options.expandKey + ' to expand)')
 			);
-		} else {
-			return (
-				'{\n' +
-				indentString(
-					Object.keys(value)
-						.map(
-							name =>
-								name +
-								': ' +
-								renderDirOutputValue(value[name], depth - 1, options) +
-								','
-						)
-						.join('\n'),
-					2
-				) +
-				'\n}'
-			);
 		}
-	} else {
-		return inspect(value, { colors: true });
+		return (
+			'{\n' +
+			indentString(
+				Object.keys(value)
+					.map(
+						name =>
+							name +
+							': ' +
+							renderDirOutputValue(value[name], depth - 1, options) +
+							','
+					)
+					.join('\n'),
+				2
+			) +
+			'\n}'
+		);
 	}
+	return inspect(value, { colors: true });
 }
 
 function renderNormalEntry(entry) {
@@ -84,7 +81,7 @@ function renderString(s, p) {
 			output.push(str);
 		}
 	}
-	if (s.log.length) {
+	if (s.log.length > 0) {
 		// TODO: make expand key configurable
 		const lastEntry = renderEntry(
 			s.log[lastEntryToDisplayIndex],

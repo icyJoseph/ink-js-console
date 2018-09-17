@@ -1,9 +1,9 @@
 const { h, Component, Text } = require('ink');
 const PropTypes = require('prop-types');
 
-const LogCatcher = require('./LogCatcher');
-const renderString = require('./renderString');
 const actions = require('../actions');
+const Logger = require('./logger');
+const renderString = require('./renderString');
 
 const CONTRACT_KEY = 'h';
 const EXPAND_KEY = 'l';
@@ -24,8 +24,6 @@ class LogOutput extends Component {
 			depth: 2
 		};
 
-		// this._logCatcher = LogCatcher;
-		// this._reset = null;
 		this.handleKeyPress = this.handleKeyPress.bind(this);
 		this._handleLogCatcherUpdate = this._handleLogCatcherUpdate.bind(this);
 		this._updateLogCatcher = this._updateLogCatcher.bind(this);
@@ -54,6 +52,8 @@ class LogOutput extends Component {
 			case CONTRACT_KEY:
 				this.setState(s => actions.shrink(s, this.props));
 				break;
+			default:
+				return null;
 		}
 	}
 
@@ -106,7 +106,7 @@ class LogOutput extends Component {
 				this._handleLogCatcherUpdate
 			);
 		} else {
-			this._logCatcher = new LogCatcher();
+			this._logCatcher = new Logger();
 			this._reset = this._logCatcher.onUpdate(this._handleLogCatcherUpdate);
 		}
 		this._handleLogCatcherUpdate();
@@ -128,11 +128,15 @@ class LogOutput extends Component {
 }
 
 LogOutput.propTypes = {
-	lines: PropTypes.number
+	lines: PropTypes.number,
+	logCatcher: PropTypes.shape({
+		getLog: PropTypes.func,
+		onUpdate: PropTypes.func
+	}).isRequired
 };
 
 LogOutput.defaultProps = {
 	lines: 20
 };
 
-module.exports = { LogOutput, LogCatcher };
+module.exports = { LogOutput, Logger };

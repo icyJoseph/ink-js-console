@@ -1,7 +1,7 @@
 const countRows = require('../components/countRows');
 const getDepth = require('../components/getDepth');
 
-module.exports = function expand(s, p) {
+function expand(s, p) {
 	if (s.log.length === 0) {
 		return s;
 	}
@@ -21,7 +21,8 @@ module.exports = function expand(s, p) {
 	}
 	if (s.depth >= maxDepth) {
 		return s;
-	} else {
-		return { ...s, depth: s.depth + 1 };
 	}
-};
+	return { ...s, depth: s.depth + 1 };
+}
+
+module.exports = expand;

@@ -39,10 +39,11 @@ function countNormalValueRows(values) {
 	);
 }
 
-module.exports = function countRows(entry, depth) {
+function countRows(entry, depth) {
 	if (entry.type === 'dir') {
 		return countDirValueRows(entry.value, depth);
-	} else {
-		return countNormalValueRows(entry.values);
 	}
-};
+	return countNormalValueRows(entry.values);
+}
+
+module.exports = countRows;

@@ -24,7 +24,10 @@
 	],
 	"keywords": [
 		"ink",
-		"ink-component"
+		"ink-component",
+		"ink-console",
+		"javascript-ink-console",
+		"interactive"
 	],
 	"dependencies": {
 		"chalk": "^2.4.1",
@@ -75,12 +78,33 @@
 			"xo-react"
 		],
 		"rules": {
-			"react/no-unused-prop-types": 1
+			"react/no-unused-prop-types": 1,
+			"unicorn/filename-case": [
+				"error",
+				"camelCase",
+				"pascalCase"
+			],
+			"object-curly-spacing": [
+				0,
+				"always"
+			],
+			"react/jsx-tag-spacing": [
+				0,
+				"always"
+			],
+			"react/no-deprecated": [
+				0,
+				"always"
+			],
+			"operator-linebreak": [
+				0
+			]
 		},
 		"settings": {
 			"react": {
 				"pragma": "h"
 			}
-		}
+		},
+		"prettier": true
 	}
 }
