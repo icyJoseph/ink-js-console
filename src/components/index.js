@@ -132,11 +132,12 @@ LogOutput.propTypes = {
 	logCatcher: PropTypes.shape({
 		getLog: PropTypes.func,
 		onUpdate: PropTypes.func
-	}).isRequired
+	})
 };
 
 LogOutput.defaultProps = {
-	lines: 20
+	lines: 20,
+	logCatcher: new Logger()
 };
 
 module.exports = { LogOutput, Logger };
