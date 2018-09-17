@@ -1,12 +1,10 @@
-import {h, renderToString, Color} from 'ink';
-import importJsx from 'import-jsx';
+import {h, renderToString, Text} from 'ink';
 import test from 'ava';
-
-const Ui = importJsx('./ui');
+import Console from '.';
 
 test('output', t => {
-	const actual = renderToString(<Ui/>);
-	const expected = renderToString(<Color green>I love Ink</Color>);
+	const actual = renderToString(<Console/>);
+	const expected = renderToString(<Text green>I love Ink</Text>);
 
 	t.is(actual, expected);
 });

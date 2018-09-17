@@ -1,8 +1,8 @@
 {
-  "generator-ink-cli": {
+  "generator-ink-component": {
     "promptValues": {
       "githubUsername": "icyJoseph",
-      "website": "http://icjoseph.com"
+      "website": "https://icjoseph.com"
     }
   }
 }

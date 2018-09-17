@@ -9,34 +9,50 @@
 		"email": "sephxd1234@gmail.com",
 		"url": "https://icjoseph.com"
 	},
-	"bin": "cli.js",
+	"main": "dist/index.js",
 	"engines": {
 		"node": ">=6"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"pretest": "npm run build",
+		"test": "xo && nyc ava",
+		"build": "babel src --out-dir=dist",
+		"prepublish": "npm run build"
 	},
 	"files": [
-		"cli.js",
-		"ui.js"
+		"dist"
 	],
 	"keywords": [
-		""
+		"ink",
+		"ink-component"
 	],
 	"dependencies": {
 		"chalk": "^2.4.1",
-		"import-jsx": "^1.3.0",
 		"indent-string": "^3.2.0",
-		"ink": "^0.5.0",
-		"meow": "^5.0.0",
-		"prop-types": "^15.6.1"
+		"ink": "^0.5.1",
+		"prop-types": "^15.5.10"
 	},
 	"devDependencies": {
-		"ava": "^0.25.0",
+		"ava": "^0.20.0",
+		"babel-cli": "^6.24.1",
+		"babel-plugin-transform-object-rest-spread": "^6.26.0",
 		"babel-plugin-transform-react-jsx": "^6.24.1",
-		"eslint-config-xo-react": "^0.16.0",
-		"eslint-plugin-react": "^7.7.0",
-		"xo": "0.20.3"
+		"eslint-config-xo-react": "^0.13.0",
+		"eslint-plugin-react": "^7.1.0",
+		"nyc": "^11.0.0",
+		"xo": "^0.18.2"
+	},
+	"babel": {
+		"plugins": [
+			"transform-object-rest-spread",
+			[
+				"transform-react-jsx",
+				{
+					"pragma": "h",
+					"useBuiltIns": true
+				}
+			]
+		]
 	},
 	"ava": {
 		"babel": {

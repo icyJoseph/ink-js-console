@@ -28,27 +28,25 @@ Again, all credit for the original [ink-console](https://github.com/ForbesLindes
 ## Install
 
 ```
-$ npm install --global ink-js-console
+$ npm install ink-js-console
 ```
 
 ## Usage
 
 ```js
-$ ink-js-console --help
+const { h, render } = require("ink");
+const Console = require("ink-js-console");
 
-  Usage
-    ink-js-console [input]
-
-  Options
-    --name  Lorem ipsum [Default: false]
-
-  Examples
-    $ ink-js-console
-    I love Ink
-    $ ink-js-console --name=ponies
-    I love ponies
+render(<Console lines={20}/>);
 ```
+
+## Props
+
+### lines
+
+Type: `number`<br>
+Default: `20`
 
 ## License
 
-MIT © [icyJoseph](http://icjoseph.com)
+MIT © [icyJoseph](https://icjoseph.com)
