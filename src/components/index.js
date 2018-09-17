@@ -111,9 +111,9 @@ class LogOutput extends Component {
 		}
 		this._handleLogCatcherUpdate();
 	}
-	componentWillReceiveProps(props) {
-		if (this.props.logCatcher !== props.logCatcher) {
-			this._updateLogCatcher(props);
+	componentWillUpdate(nextProps) {
+		if (this.props.logCatcher !== nextProps.logCatcher) {
+			this._updateLogCatcher(nextProps);
 		}
 	}
 
