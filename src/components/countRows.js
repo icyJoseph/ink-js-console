@@ -1,4 +1,4 @@
-const { inspect } = require("util");
+const { inspect } = require('util');
 
 function sum(values) {
 	return values.reduce((acc, count) => acc + count, 0);
@@ -12,7 +12,7 @@ function countDirValueRows(value, depth) {
 			// +2 for row with the `[` character and row with the `]` character
 			2 + sum(value.map(v => countDirValueRows(v, depth - 1)))
 		);
-	} else if (value && typeof value === "object") {
+	} else if (value && typeof value === 'object') {
 		if (depth === 0 || Object.keys(value).length === 0) {
 			return 1;
 		}
@@ -25,7 +25,7 @@ function countDirValueRows(value, depth) {
 			)
 		);
 	}
-	return inspect(value).split("\n").length;
+	return inspect(value).split('\n').length;
 }
 
 function countNormalValueRows(values) {
@@ -33,14 +33,14 @@ function countNormalValueRows(values) {
 		1 +
 		sum(
 			values.map(
-				v => (typeof v === "string" ? v : inspect(v)).split("\n").length - 1
+				v => (typeof v === 'string' ? v : inspect(v)).split('\n').length - 1
 			)
 		)
 	);
 }
 
 module.exports = function countRows(entry, depth) {
-	if (entry.type === "dir") {
+	if (entry.type === 'dir') {
 		return countDirValueRows(entry.value, depth);
 	} else {
 		return countNormalValueRows(entry.values);

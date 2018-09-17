@@ -1,4 +1,4 @@
-const consoleMethods = require("../constants");
+const consoleMethods = require('../constants');
 
 class LogCatcher {
 	constructor() {
@@ -8,8 +8,8 @@ class LogCatcher {
 			const originalFn = console[method];
 			const customLog = (...args) => {
 				this._log.push(
-					method === "dir"
-						? { type: "dir", value: args[0] }
+					method === 'dir'
+						? { type: 'dir', value: args[0] }
 						: { type: method, values: args }
 				);
 				for (const value of this._handlers) {

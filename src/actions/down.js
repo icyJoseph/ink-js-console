@@ -1,5 +1,5 @@
-const countRows = require("../components/countRows");
-const assert = require("assert");
+const countRows = require('../components/countRows');
+const assert = require('assert');
 
 module.exports = function down(s) {
 	if (s.pinned) {
@@ -11,7 +11,7 @@ module.exports = function down(s) {
 		}
 		const lastEntryToDisplayIndex = s.lastEntryToDisplayIndex + 1;
 		const lastEntryLines = countRows(s.log[lastEntryToDisplayIndex], s.depth);
-		assert(lastEntryLines >= 1, "All log entries should be at least one line");
+		assert(lastEntryLines >= 1, 'All log entries should be at least one line');
 		return {
 			...s,
 			lastEntryToDisplayIndex,

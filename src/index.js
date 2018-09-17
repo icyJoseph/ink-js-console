@@ -1,5 +1,5 @@
-"use strict";
+'use strict';
 
-const { LogOutput } = require("./components");
+const { LogOutput } = require('./components');
 
 module.exports = LogOutput;

@@ -1,5 +1,5 @@
-const countRows = require("../components/countRows");
-const topStop = require("./topStop");
+const countRows = require('../components/countRows');
+const topStop = require('./topStop');
 
 module.exports = function up(s, props) {
 	if (s.pinned) {

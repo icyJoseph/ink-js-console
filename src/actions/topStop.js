@@ -1,5 +1,5 @@
-const countRows = require("../components/countRows");
-const down = require("./down");
+const countRows = require('../components/countRows');
+const down = require('./down');
 
 module.exports = function topStop(s, props) {
 	let lines = 0;

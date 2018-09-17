@@ -1,17 +1,17 @@
-const { h, Component, Text } = require("ink");
-const PropTypes = require("prop-types");
+const { h, Component, Text } = require('ink');
+const PropTypes = require('prop-types');
 
-const LogCatcher = require("./LogCatcher");
-const renderString = require("./renderString");
-const actions = require("../actions");
+const LogCatcher = require('./LogCatcher');
+const renderString = require('./renderString');
+const actions = require('../actions');
 
-const CONTRACT_KEY = "h";
-const EXPAND_KEY = "l";
-const UP_KEY = "k";
-const DOWN_KEY = "j";
-const PAGE_UP_KEY = "K";
-const PAGE_DOWN_KEY = "J";
-const PIN_KEY = "G";
+const CONTRACT_KEY = 'h';
+const EXPAND_KEY = 'l';
+const UP_KEY = 'k';
+const DOWN_KEY = 'j';
+const PAGE_UP_KEY = 'K';
+const PAGE_DOWN_KEY = 'J';
+const PIN_KEY = 'G';
 
 class LogOutput extends Component {
 	constructor(props) {
@@ -68,12 +68,12 @@ class LogOutput extends Component {
 				<br />
 				<div>
 					<Text>
-						(Move up: <Text blue>{UP_KEY}</Text>, Move down:{" "}
-						<Text blue>{DOWN_KEY}</Text>, Page up:{" "}
-						<Text blue>{PAGE_UP_KEY}</Text>, Page down:{" "}
-						<Text blue>{PAGE_DOWN_KEY}</Text>, Pin to end of log:{" "}
-						<Text blue>{PIN_KEY}</Text>, Expand objects:{" "}
-						<Text blue>{EXPAND_KEY}</Text>, Shrink objects:{" "}
+						(Move up: <Text blue>{UP_KEY}</Text>, Move down:{' '}
+						<Text blue>{DOWN_KEY}</Text>, Page up:{' '}
+						<Text blue>{PAGE_UP_KEY}</Text>, Page down:{' '}
+						<Text blue>{PAGE_DOWN_KEY}</Text>, Pin to end of log:{' '}
+						<Text blue>{PIN_KEY}</Text>, Expand objects:{' '}
+						<Text blue>{EXPAND_KEY}</Text>, Shrink objects:{' '}
 						<Text blue>{CONTRACT_KEY}</Text>)
 					</Text>
 				</div>
@@ -81,7 +81,7 @@ class LogOutput extends Component {
 		);
 	}
 	componentDidMount() {
-		process.stdin.on("keypress", this.handleKeyPress);
+		process.stdin.on('keypress', this.handleKeyPress);
 		this._updateLogCatcher(this.props);
 	}
 
@@ -118,7 +118,7 @@ class LogOutput extends Component {
 	}
 
 	componentWillUnmount() {
-		process.stdin.removeListener("keypress", this.handleKeyPress);
+		process.stdin.removeListener('keypress', this.handleKeyPress);
 
 		if (this._logCatcher) {
 			this._logCatcher.dispose();

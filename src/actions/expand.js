@@ -1,5 +1,5 @@
-const countRows = require("../components/countRows");
-const getDepth = require("../components/getDepth");
+const countRows = require('../components/countRows');
+const getDepth = require('../components/getDepth');
 
 module.exports = function expand(s, p) {
 	if (s.log.length === 0) {
@@ -15,7 +15,7 @@ module.exports = function expand(s, p) {
 	for (let i = lastEntryToDisplayIndex; i >= 0 && lines < p.lines; i--) {
 		const entry = s.log[i];
 		lines += countRows(entry, s.depth);
-		if (entry.type === "dir") {
+		if (entry.type === 'dir') {
 			maxDepth = Math.max(maxDepth, getDepth(entry.value));
 		}
 	}

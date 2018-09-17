@@ -1,4 +1,4 @@
-const topStop = require("./topStop");
+const topStop = require('./topStop');
 
 module.exports = function expand(s, p) {
 	if (s.depth <= 0) {
