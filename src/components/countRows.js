@@ -40,6 +40,7 @@ function countNormalValueRows(values) {
 }
 
 function countRows(entry, depth) {
+	if (!entry) return 0;
 	if (entry.type === 'dir') {
 		return countDirValueRows(entry.value, depth);
 	}
