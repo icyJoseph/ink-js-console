@@ -61,7 +61,7 @@ class LogOutput extends Component {
 		return (
 			<div>
 				<div>
-					<Text bold>Log Output</Text>
+					<Text bold>{this.props.title}</Text>
 				</div>
 				<br />
 				<div>{renderString(this.state, this.props)}</div>
@@ -129,6 +129,7 @@ class LogOutput extends Component {
 
 LogOutput.propTypes = {
 	lines: PropTypes.number,
+	title: PropTypes.string,
 	logCatcher: PropTypes.shape({
 		getLog: PropTypes.func,
 		onUpdate: PropTypes.func
@@ -137,6 +138,7 @@ LogOutput.propTypes = {
 
 LogOutput.defaultProps = {
 	lines: 20,
+	title: 'Log Output',
 	logCatcher: new Logger()
 };
 
