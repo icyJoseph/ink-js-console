@@ -37,8 +37,8 @@ $ npm install ink-js-console
 ## Usage
 
 ```js
-const { h, render } = require("ink");
-const Console = require("ink-js-console");
+const { h, render } = require('ink');
+const Console = require('ink-js-console');
 
 render(<Console lines={20} />);
 ```
@@ -49,6 +49,11 @@ render(<Console lines={20} />);
 
 Type: `number`<br>
 Default: `20`
+
+### title
+
+Type: `string`<br>
+Default: `Log Output`
 
 ## License
 
