@@ -15,8 +15,8 @@
 	},
 	"scripts": {
 		"pretest": "npm run build",
-		"test": "xo && nyc ava",
-		"test:quick": "nyc ava",
+		"test": "xo && nyc ava --tap | tap-nyan",
+		"test:quick": "nyc ava --tap | tap-nyan",
 		"build": "babel src --out-dir=dist",
 		"prepublish": "npm run build"
 	},
@@ -44,6 +44,7 @@
 		"eslint-config-xo-react": "^0.13.0",
 		"eslint-plugin-react": "^7.1.0",
 		"nyc": "^11.0.0",
+		"tap-nyan": "^1.1.0",
 		"xo": "^0.18.2"
 	},
 	"babel": {
