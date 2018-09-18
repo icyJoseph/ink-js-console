@@ -16,6 +16,7 @@
 	"scripts": {
 		"pretest": "npm run build",
 		"test": "xo && nyc ava",
+		"test:quick": "nyc ava",
 		"build": "babel src --out-dir=dist",
 		"prepublish": "npm run build"
 	},
@@ -106,5 +107,11 @@
 			}
 		},
 		"prettier": true
+	},
+	"nyc": {
+		"reporter": [
+			"html",
+			"text"
+		]
 	}
 }
